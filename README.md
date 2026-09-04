@@ -44,8 +44,8 @@ dsh plugin --profile web add link:E:/S_Software/deepseek-harness/plugins/dsh-leg
 ### 发布到 npm 后（一条更短的命令）
 
 ```bash
-# 已发布到官方 npm：dsh-legacy-compat
-npm_config_registry=https://registry.npmjs.org dsh plugin --profile web add dsh-legacy-compat
+# 已发布到官方 npm：@mengge237/dsh-legacy-compat
+npm_config_registry=https://registry.npmjs.org dsh plugin --profile web add @mengge237/dsh-legacy-compat
 ```
 
 > 说明：默认 npm 源是 npmmirror 镜像，新包同步通常有几十分钟到数小时延迟；
