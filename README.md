@@ -41,6 +41,17 @@ dsh plugin --profile web add link:E:/S_Software/deepseek-harness/plugins/dsh-leg
 
 任意 profile 均可（web / tui / headless / 自定义），命令里的 `web` 换成目标 profile 名即可。
 
+### 发布到 npm 后（一条更短的命令）
+
+```bash
+# 已发布到官方 npm：dsh-legacy-compat
+npm_config_registry=https://registry.npmjs.org dsh plugin --profile web add dsh-legacy-compat
+```
+
+> 说明：默认 npm 源是 npmmirror 镜像，新包同步通常有几十分钟到数小时延迟；
+> 同步前请用上面的 `npm_config_registry=https://registry.npmjs.org` 临时走官方源安装，
+> 镜像同步完成后即可省略该前缀。
+
 ### 装好后在哪里能看到它？
 
 - DSH 原生 **Settings → Plugins（插件/Plugins 清单）** 会列出 `dsh-legacy-compat`（它就是一层 bundle）；

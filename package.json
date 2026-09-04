@@ -9,25 +9,38 @@
     "./package.json": "./package.json"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=20"
   },
   "files": [
     "lib/",
     "bin/",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "COVERAGE.md"
   ],
   "keywords": [
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
     "compat",
-    "compatibility"
+    "compatibility",
+    "shim",
+    "session.events",
+    "boot-guard"
   ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "author": "mengge237 <3520315434@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengge237/dsh-legacy-compat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mengge237/dsh-legacy-compat/issues"
+  },
+  "homepage": "https://github.com/mengge237/dsh-legacy-compat#readme"
 }
