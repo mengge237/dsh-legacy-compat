@@ -31,6 +31,18 @@ node E:/S_Software/deepseek-harness/plugins/dsh-legacy-compat/bin/repair.mjs
 # 指定自定义 home： node bin/repair.mjs --home <dshHome>
 ```
 
+## 本地 link 安装的依赖解析
+
+本插件的 `Session.events` 别名需要 import `@deepseek-ai/dsh-session`。
+- **npm/registry 安装**（`dsh plugin add dsh-legacy-compat`）：依赖随包安装，无需额外处理。
+- **本地 link 安装**：请保证插件目录能解析该包（本仓库源码目录已自带
+  `node_modules/@deepseek-ai/dsh-session` 指向 harness 安装的 junction；
+  从仓库下载后如需本地 link 使用，请重建该链接）：
+  ```powershell
+  New-Item -ItemType Junction -Path node_modules/@deepseek-ai/dsh-session ^
+    -Target <dsh 安装路径>/node_modules/@deepseek-ai/dsh-session
+  ```
+
 ## 边界与建议
 
 - 这是**过渡垫片**：真正修复需要上游（已反馈：
