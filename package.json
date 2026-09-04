@@ -1,0 +1,33 @@
+{
+  "name": "dsh-legacy-compat",
+  "version": "0.1.0",
+  "description": "DSH 兼容垫片与启动保护：Session.events 旧 API 别名、坏会话日志启动自检/隔离、Node 版本预检（0.1.2-rc.1 过渡用）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "lib/",
+    "bin/",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "compat",
+    "compatibility"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT"
+}

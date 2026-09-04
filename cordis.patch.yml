@@ -1,0 +1,10 @@
+# dsh-legacy-compat bundle patch
+#
+# 安装（web 或任意 profile）：
+#   dsh plugin --profile web add link:E:/S_Software/deepseek-harness/plugins/dsh-legacy-compat
+# 然后完全重启 dsh web。
+#
+# 说明：本插件是 0.1.2-rc.1 过渡期的兼容垫片，上游修复后可按需移除。
+- insert:
+    - id: dsh-legacy-compat
+      name: dsh-legacy-compat
