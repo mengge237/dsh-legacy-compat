@@ -13,18 +13,34 @@ DSH 0.1.2-rc.1 过渡期的「兼容垫片 + 启动保护」插件。
    按旧 API 写的第三方预设/插件（如 `session.events.length` 这类用法）无需修改即可运行。
 3. **启动预检**：Node 版本 / zstd API 检查（rc.1 需要 Node >= 24）。
 
-## 安装
+## 安装（一条命令，社区可直接用）
 
 ```bash
-# 方式 A：本地源码（本仓库）
+# 方式 A：GitHub 渠道（已验证：6 秒装好且自动进 bundle 栈，无需 npm）
+dsh plugin --profile web add github:mengge237/dsh-legacy-compat
+
+# 方式 B：本地源码（开发/修改用）
 dsh plugin --profile web add link:E:/S_Software/deepseek-harness/plugins/dsh-legacy-compat
-# 方式 B：以后发布到 npm 后
+
+# 方式 C：发布到 npm 之后
 # dsh plugin --profile web add dsh-legacy-compat
 
-# 完全重启 dsh web
+# 装完完全重启 dsh web
 ```
 
-任意 profile 均可（web / tui / headless / 自定义）。
+任意 profile 均可（web / tui / headless / 自定义），命令里的 `web` 换成目标 profile 名即可。
+
+### 装好后在哪里能看到它？
+
+- DSH 原生 **Settings → Plugins（插件/Plugins 清单）** 会列出 `dsh-legacy-compat`（它就是一层 bundle）；
+- 一切正常时插件保持安静，只在“隔离了坏日志 / Node 不兼容 / 别名安装失败”时提示一行；
+- 想卸载：下面的 `bin/uninstall.mjs`，或官方命令 `dsh plugin --profile web remove dsh-legacy-compat`。
+
+### 为什么隔离的坏会话在会话列表/设置里看不到？
+
+- DSH 原生的会话列表只读 `sessions/**/session.jsonl.zstd` 且首帧必须合法；被隔离的文件已移出该目录，所以不再出现（这正是“让 dsh 能启动”的目的）；
+- 隔离文件原字节保留在 `~/.dsh/dsh-legacy-compat-quarantine/`，可用 `node bin/repair.mjs` 查看统计、用文件管理器查看；
+- 如果社区呼声高，后续可做一个“隔离区管理”设置页（一键恢复/清理），需要引入前端分栏——属于过渡期之后的增强。
 
 ## 一键卸载（过渡期专用）
 
