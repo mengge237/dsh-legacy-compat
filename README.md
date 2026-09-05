@@ -1,15 +1,18 @@
 # dsh-legacy-compat
 
-> ⚠️ **过渡垫片**：装完即用、默认安静、一条命令卸载；上游修复后即可移除。
+![lang](https://img.shields.io/badge/lang-JavaScript-informational) ![status](https://img.shields.io/badge/status-maintained-brightgreen)
 
-## ▶ 安装（社区直接用，已验证 6 秒装好）
+
+>  **过渡垫片**：装完即用、默认安静、一条命令卸载；上游修复后即可移除。
+
+##  安装（社区直接用，已验证 6 秒装好）
 
 ```bash
 dsh plugin --profile web add github:mengge237/dsh-legacy-compat
 # 装完完全重启 dsh web；Settings → Plugins 里能看到 dsh-legacy-compat
 ```
 
-**能覆盖什么、覆盖多少、怎么自查 → 请看 [COVERAGE.md](COVERAGE.md)**（含本机实测与 `node bin/check-compat.mjs` 一键扫描）
+**能覆盖什么、覆盖多少、怎么自查  请看 [COVERAGE.md](COVERAGE.md)**（含本机实测与 `node bin/check-compat.mjs` 一键扫描）
 
 DSH 0.1.2-rc.1 过渡期的「兼容垫片 + 启动保护」插件。
 设计原则：**装上即用、平时安静、一键卸载**；上游修复后即可移除。
@@ -54,7 +57,7 @@ npm_config_registry=https://registry.npmjs.org dsh plugin --profile web add @men
 
 ### 装好后在哪里能看到它？
 
-- DSH 原生 **Settings → Plugins（插件/Plugins 清单）** 会列出 `dsh-legacy-compat`（它就是一层 bundle）；
+- DSH 原生 **Settings  Plugins（插件/Plugins 清单）** 会列出 `dsh-legacy-compat`（它就是一层 bundle）；
 - 一切正常时插件保持安静，只在“隔离了坏日志 / Node 不兼容 / 别名安装失败”时提示一行；
 - 想卸载：下面的 `bin/uninstall.mjs`，或官方命令 `dsh plugin --profile web remove dsh-legacy-compat`。
 
